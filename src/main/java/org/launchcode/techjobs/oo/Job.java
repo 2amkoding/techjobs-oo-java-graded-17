@@ -20,15 +20,16 @@ public class Job {
     public Job() {
         id = nextId;
         nextId++;
+
     }
 
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
         this();
-        this.name = name;
-        this.employer = employer;
-        this.location = location;
-        this.positionType = positionType;
-        this.coreCompetency = coreCompetency;
+        this.name = (name == null) ? ("Data not available") : name;
+        this.employer = (employer == null) ? new Employer ("Data not available") : employer;
+        this.location = (location == null) ? new Location("Data not available") : location;
+        this.positionType = (positionType == null) ? new PositionType("Data not available") : positionType;
+        this.coreCompetency = (coreCompetency == null) ? new CoreCompetency("Data not available") : coreCompetency;
     }
 
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
@@ -92,5 +93,19 @@ public class Job {
 
     public void setCoreCompetency(CoreCompetency coreCompetency) {
         this.coreCompetency = coreCompetency;
+    }
+
+    @Override
+    public String toString() {
+        String s = System.lineSeparator();
+        return
+                s+
+                "ID: " + id +s+
+                "Name: " + name +s+
+                "Employer: " + employer +s+
+                "Location: " + location +s+
+                "Position Type: " + positionType +s+
+                "Core Competency: " + coreCompetency +s;
+
     }
 }

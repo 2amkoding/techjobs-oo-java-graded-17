@@ -1,6 +1,7 @@
 package org.launchcode.techjobs.oo;
 
 import org.junit.Test;
+import org.testng.AssertJUnit;
 
 import javax.lang.model.element.Name;
 
@@ -42,6 +43,32 @@ public class JobTest {
         Job test_job4 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
         assertNotEquals(test_job3, test_job4);
+    }
+    @Test
+    public void testToStringStartsAndEndsWithNewLine() {
+        String s = System.lineSeparator();
+
+        Job blank_job = new Job();
+
+        Job test_job3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+        assertEquals(s+ "ID: " + test_job3.getId() +s + "Name: " + test_job3.getName() +s +"Employer: " + test_job3.getEmployer()+s+"Location: " + test_job3.getLocation() +s +"Position Type: " + test_job3.getPositionType() +s +"Core Competency: " + test_job3.getCoreCompetency() +s, test_job3.toString());
+    }
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData() {
+        String s = System.lineSeparator();
+
+        Job blank_job = new Job();
+
+        Job test_job3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+        assertEquals(s+ "ID: " + test_job3.getId() +s + "Name: " + test_job3.getName() +s +"Employer: " + test_job3.getEmployer()+s+"Location: " + test_job3.getLocation() +s +"Position Type: " + test_job3.getPositionType() +s +"Core Competency: " + test_job3.getCoreCompetency() +s, test_job3.toString());
+    }
+
+    @Test
+    public void testToStringHandlesEmptyField() {
+
     }
 
 }
