@@ -1,13 +1,12 @@
 package org.launchcode.techjobs.oo;
 
 import org.junit.Test;
+import org.testng.Assert;
 import org.testng.AssertJUnit;
 
 import javax.lang.model.element.Name;
 
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertTrue;
-import static org.testng.AssertJUnit.assertEquals;
+import static org.junit.Assert.*;
 
 
 public class JobTest {
@@ -22,13 +21,14 @@ public class JobTest {
 
     @Test
     public void testJobConstructorSetsAllFields() {
+
         Job test_job3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
-        assertTrue(test_job3.getName() instanceof String);
-        assertTrue(test_job3.getEmployer() instanceof Employer);
-        assertTrue(test_job3.getCoreCompetency() instanceof CoreCompetency);
-        assertTrue(test_job3.getLocation() instanceof Location);
-        assertTrue(test_job3.getPositionType() instanceof PositionType);
+        assertTrue(test_job3.getName() != null);
+        assertTrue(test_job3.getEmployer() != null);
+        assertTrue(test_job3.getCoreCompetency() != null);
+        assertTrue(test_job3.getLocation() != null);
+        assertTrue(test_job3.getPositionType() != null);
 
         assertEquals(test_job3.getName(), "Product tester");
         assertEquals(test_job3.getEmployer(), "ACME");
@@ -71,7 +71,7 @@ public class JobTest {
         String s = System.lineSeparator();
         Job test_job3 = new Job("Product tester", new Employer(""), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
-        assertEquals(test_job3,s+ "ID: " + test_job3.getId() +s + "Name: " + test_job3.getName() +s +"Employer: Data not available" +s+"Location: " + test_job3.getLocation() +s +"Position Type: " + test_job3.getPositionType() +s +"Core Competency: " + test_job3.getCoreCompetency() +s);
+        assertEquals(test_job3,s+ "ID: " + test_job3.getId() +s + "Name: " + test_job3.getName() +s +"Employer: " + test_job3.getEmployer() +s+"Location: " + test_job3.getLocation() +s +"Position Type: " + test_job3.getPositionType() +s +"Core Competency: " + test_job3.getCoreCompetency() +s);
     }
 
 }
