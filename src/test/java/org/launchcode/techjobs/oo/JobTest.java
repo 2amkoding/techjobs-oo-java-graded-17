@@ -32,10 +32,10 @@ public class JobTest {
         assertTrue(test_job3.getPositionType() != null);
 
         assertEquals(test_job3.getName(), "Product tester");
-        assertEquals("ACME", test_job3.getEmployer());
-        assertEquals(test_job3.getCoreCompetency(), "Desert");
-        assertEquals(test_job3.getLocation(), "Quality control");
-        assertEquals(test_job3.getPositionType(), "Persistence");
+        assertEquals("ACME", test_job3.getEmployer().toString());
+        assertEquals(test_job3.getCoreCompetency().toString(), "Persistence");
+        assertEquals(test_job3.getLocation().toString(), "Desert");
+        assertEquals(test_job3.getPositionType().toString(), "Quality control");
     }
     @Test
     public void testJobsForEquality() {

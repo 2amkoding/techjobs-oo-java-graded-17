@@ -35,6 +35,7 @@ public class PositionType extends JobField{
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
+        if (o == null) return false;
         if (!(o instanceof PositionType)) return false;
         PositionType positionType = (PositionType) o;
         return id == positionType.id;
